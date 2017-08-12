@@ -1,4 +1,4 @@
-package com.ufcg.si1.model;
+                        package com.ufcg.si1.model;
 
 
 public class PostoSaude extends UnidadeSaude{
@@ -6,25 +6,23 @@ public class PostoSaude extends UnidadeSaude{
 
     private float taxaDiariaAtendimentos;
 
-    public PostoSaude(String descricao, int at, int taxa) {
+    public PostoSaude(String descricao, int atendentes, int taxa) {
         super(descricao);
-        this.atendentes = at;
+        this.atendentes = atendentes;
         this.taxaDiariaAtendimentos = taxa;
     }
 
-    public PostoSaude(){
-        super();
-    }
-
-    // implementacoes vazias(???)
+    // implementacoes vazias
     public int getAtendentes() {
         return atendentes;
     }
-
+    
+/*
     public float taxaDiaria() {
         return taxaDiariaAtendimentos;
     }
-
+*/
+    
     public void setAtendentes(int atendentes) {
         this.atendentes = atendentes;
     }

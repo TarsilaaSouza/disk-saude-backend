@@ -11,30 +11,32 @@ import java.util.List;
         @JsonSubTypes.Type(value = PostoSaude.class, name = "posto")
 })
 public class UnidadeSaude {
+	//classe desnecessaria 
     private int codigo;
 
     private String descricao;
 
-    private List especialidades = new ArrayList();
-
-    private long [] numeroQueixas = new long[1000];
-    int contador = 0;
+    private List<Especialidade> especialidades = new ArrayList<>();
+    
+    //private List<Queixa> queixas = new ArrayList<>();
+    // private long [] numeroQueixas = new long[1000];
+    private List numeroQueixas = new ArrayList();
+   // int contador = 0;
 
     public UnidadeSaude(String descricao) {
         this.codigo = 0; // gerado no repositorio
         this.descricao = descricao;
     }
-    public UnidadeSaude(){
-    }
 
     public void addQueixaProxima(long id) {
-    	//NAO FAZ SENTIDO ESSA PARADA AQUI
-        if (this instanceof PostoSaude){
+       /* if (this instanceof PostoSaude){
             numeroQueixas[contador++] = id;
-        }
+        } 
+    	this.contador += 1; */
+    	
+    	this.numeroQueixas.add(id);
     }
-    
-    //NOME RUIM - pega é foda kkk
+
     public String pegaDescricao() {
         return this.descricao;
     }
@@ -50,13 +52,11 @@ public class UnidadeSaude {
     public void adicionarEspecialidade(Especialidade esp) {
         this.especialidades.add(esp);
     }
-    
-    //NOME RUIM - pega é foda kkk
+
     public int pegaCodigo() {
         return this.codigo;
     }
 
-    //NOME RUIM
     public void mudaCodigo(int cod) {
         this.codigo = cod;
     }

@@ -14,7 +14,8 @@ public class Queixa {
 	public int situacao; // usa variaveis estaticas abaixo
 	/* situacoes da queixa */
 	
-	//Vale a pena fazer um ENUM? 
+	//Vale a pena fazer um ENUM? V
+	//Vale fazer o State
 	public static final int ABERTA = 1;
 	public static final int EM_ANDAMENTO = 2;
 	public static final int FECHADA = 3;
@@ -57,18 +58,22 @@ public class Queixa {
 	}
 
 	public void abrir() throws ObjetoInvalidoException {
-		if (this.situacao != Queixa.EM_ANDAMENTO)
+		if (this.situacao != Queixa.EM_ANDAMENTO){
 			this.situacao = Queixa.ABERTA;
-		else
+		
+		}else
 			throw new ObjetoInvalidoException("Status inválido");
 	}
 	
 	//BAD SMELL - MTOS PARAMETROS NO CONDICIONAL
 	public void fechar(String coment) throws ObjetoInvalidoException {
+		
 		if (this.situacao == Queixa.EM_ANDAMENTO
 				|| this.situacao == Queixa.ABERTA) {
+		
 			this.situacao = Queixa.FECHADA;
 			this.comentario = coment;
+		
 		} else
 			throw new ObjetoInvalidoException("Status Inválido");
 	}
