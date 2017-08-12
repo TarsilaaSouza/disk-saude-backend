@@ -25,7 +25,6 @@ public interface QueixaService {
 
 	Iterator<Queixa> getIterator();
 
-
 //	boolean isUserExist(Queixa user);
 	
 }

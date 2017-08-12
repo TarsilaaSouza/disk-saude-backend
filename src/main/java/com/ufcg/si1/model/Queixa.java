@@ -19,9 +19,9 @@ public class Queixa {
 
 	private String comentario = ""; // usado na atualizacao da queixa
 
-	/*public Queixa(){
+	public Queixa(){
 		id=0;
-	}*/
+	}
 
 	public Queixa(long id, String descricao, int situacao, String comentario,
                   String nome, String email,
@@ -54,18 +54,17 @@ public class Queixa {
 	}
 
 	public void abrir() throws ObjetoInvalidoException {
-		if (this.situacao != this.EM_ANDAMENTO)
-			this.situacao = this.ABERTA;
+		if (this.situacao != Queixa.EM_ANDAMENTO)
+			this.situacao = Queixa.ABERTA;
 		else
 			throw new ObjetoInvalidoException("Status inválido");
 	}
 
 	public void fechar(String coment) throws ObjetoInvalidoException {
-		if (this.situacao != this.FECHADA) {
-			
-			this.situacao = this.FECHADA;
-			this.setComentario(coment);
-			
+		if (this.situacao == Queixa.EM_ANDAMENTO
+				|| this.situacao == Queixa.ABERTA) {
+			this.situacao = Queixa.FECHADA;
+			this.comentario = coment;
 		} else
 			throw new ObjetoInvalidoException("Status Inválido");
 	}
