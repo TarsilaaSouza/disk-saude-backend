@@ -13,6 +13,8 @@ public class Queixa {
 
 	public int situacao; // usa variaveis estaticas abaixo
 	/* situacoes da queixa */
+	
+	//Vale a pena fazer um ENUM? 
 	public static final int ABERTA = 1;
 	public static final int EM_ANDAMENTO = 2;
 	public static final int FECHADA = 3;
@@ -22,7 +24,8 @@ public class Queixa {
 	public Queixa(){
 		id=0;
 	}
-
+	
+	//BAD SMELL - LONGA LISTA DE PARAMETROS
 	public Queixa(long id, String descricao, int situacao, String comentario,
                   String nome, String email,
 				  String rua, String uf, String cidade) {
@@ -59,7 +62,8 @@ public class Queixa {
 		else
 			throw new ObjetoInvalidoException("Status inválido");
 	}
-
+	
+	//BAD SMELL - MTOS PARAMETROS NO CONDICIONAL
 	public void fechar(String coment) throws ObjetoInvalidoException {
 		if (this.situacao == Queixa.EM_ANDAMENTO
 				|| this.situacao == Queixa.ABERTA) {

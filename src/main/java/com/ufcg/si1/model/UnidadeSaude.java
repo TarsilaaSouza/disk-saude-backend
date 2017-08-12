@@ -28,11 +28,13 @@ public class UnidadeSaude {
     }
 
     public void addQueixaProxima(long id) {
+    	//NAO FAZ SENTIDO ESSA PARADA AQUI
         if (this instanceof PostoSaude){
             numeroQueixas[contador++] = id;
         }
     }
-
+    
+    //NOME RUIM - pega é foda kkk
     public String pegaDescricao() {
         return this.descricao;
     }
@@ -48,11 +50,13 @@ public class UnidadeSaude {
     public void adicionarEspecialidade(Especialidade esp) {
         this.especialidades.add(esp);
     }
-
+    
+    //NOME RUIM - pega é foda kkk
     public int pegaCodigo() {
         return this.codigo;
     }
 
+    //NOME RUIM
     public void mudaCodigo(int cod) {
         this.codigo = cod;
     }

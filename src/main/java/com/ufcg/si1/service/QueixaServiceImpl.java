@@ -58,8 +58,9 @@ public class QueixaServiceImpl implements QueixaService {
         queixas.set(index, queixa);
     }
 
+    
     public void deleteQueixaById(long id) {
-
+    	//Possivel badsmell
         for (Iterator<Queixa> iterator = queixas.iterator(); iterator.hasNext(); ) {
             Queixa q = iterator.next();
             if (q.getId() == id) {
@@ -69,6 +70,7 @@ public class QueixaServiceImpl implements QueixaService {
     }
 
     @Override
+    // kkkkkkk mds
     //este metodo nunca eh chamado, mas se precisar estah aqui
     public int size() {
         return queixas.size();

@@ -58,7 +58,8 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
         else
             return null;
     }
-
+    
+    //Possivel badsmell
     @Override
     public void insere(Especialidade esp) throws Rep,
             ObjetoJaExistenteException {
@@ -76,7 +77,8 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
         this.vetor[indice] = esp;
         indice++;
     }
-
+    
+    //Possivel badsmell
     @Override
     public boolean existe(int codigo) {
 

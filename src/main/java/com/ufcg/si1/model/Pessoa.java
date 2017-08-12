@@ -1,5 +1,7 @@
 package com.ufcg.si1.model;
 
+
+//No mundo em que pessoas eram filhas dos endereços
 public class Pessoa extends Endereco {
 	private String nome;
 

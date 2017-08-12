@@ -16,7 +16,7 @@ public class PostoSaude extends UnidadeSaude{
         super();
     }
 
-    // implementacoes vazias
+    // implementacoes vazias(???)
     public int getAtendentes() {
         return atendentes;
     }

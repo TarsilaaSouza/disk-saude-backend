@@ -23,6 +23,8 @@ import java.util.List;
 @RequestMapping("/api")
 @CrossOrigin
 public class RestApiController {
+	
+	//SEPARAR OS CONTROLLERS EM 1 PARA CADA SERVICE
 
     QueixaService queixaService = new QueixaServiceImpl();
     EspecialidadeService especialidadeService = new EspecialidadeServiceImpl();
