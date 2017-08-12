@@ -6,104 +6,157 @@ import exceptions.ObjetoJaExistenteException;
 import exceptions.Rep;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @Service("especialidadeService")
 public class EspecialidadeServiceImpl implements EspecialidadeService {
 
-    private Especialidade[] vetor;
-
+   // private Especialidade[] vetor;
+	private List<Especialidade> especialidades;
     private int indice;
 
-    private int geraCodigo = 0; // para gerar codigos
+   // private int geraCodigo = 0; // para gerar codigos
 
     public EspecialidadeServiceImpl() {
-        vetor = new Especialidade[100];
-        indice = 0;
+    	
+        //vetor = new Especialidade[100]; MAS POR QUE 100?
+    	
+    	this.especialidades = new ArrayList<>();
+        this.indice = 0;
     }
 
     @Override
     public Especialidade procura(int codigo) throws Rep,
             ObjetoInexistenteException {
 
-        int i = 0;
-
+       /* int i = 0;
         while (i < indice) {
             if (vetor[i].getCodigo() == codigo) {
                 return vetor[i];
             }
-
             i++;
-        }
+        } */
+    	for (Especialidade especialidade : especialidades) {
+			
+    		if(especialidade.getCodigo() == codigo){
+    			
+    			return especialidade;
+    		}
+		}
 
         throw new ObjetoInexistenteException("Erro Especialidade");
     }
 
     @Override
-    public List getListaEspecialidade()
+    public List<Especialidade> getListaEspecialidade()
             throws Rep, ObjetoInexistenteException {
-        return Arrays.asList(vetor);
+        //return Arrays.asList(vetor);
+    	return this.especialidades;
     }
 
     @Override
     public int size() {
-        return this.indice;
+        //return this.indice;
+    	return this.especialidades.size();
     }
 
     @Override
     public Especialidade getElemento(int posicao) {
-        if (posicao < indice)
+        /*if (posicao < indice)
             return this.vetor[posicao];
         else
-            return null;
+            return null;*/
+    	if(posicao < this.size()){
+    		
+    		return this.especialidades.get(posicao);
+    	}
+    	return null;
     }
-    
-    //Possivel badsmell
+
     @Override
-    public void insere(Especialidade esp) throws Rep,
+    public void insere(Especialidade especialidade) throws Rep,
             ObjetoJaExistenteException {
+    	
+    	int novoCodigo = this.gerarCodigo();
+    	
+       // especialidade.setCodigo(++geraCodigo);
+    	
+    	especialidade.setCodigo(novoCodigo);
 
-        esp.setCodigo(++geraCodigo);
-
-        if (indice == this.vetor.length) {
+       /* if (indice == this.vetor.length) {
             throw new Rep("Erro ao incluir no array");
         }
-
-        if (this.existe(esp.getCodigo())) {
+        
+        por que ter uma restricao de especialidades?
+*/
+    	
+        if (this.findById(especialidade.getCodigo()) != null) {
+        	
             throw new ObjetoJaExistenteException("Objeto jah existe no array");
         }
 
-        this.vetor[indice] = esp;
-        indice++;
+        this.especialidades.add(especialidade);
+//        this.vetor[indice] = especialidade;
+//        indice++;
     }
-    
-    //Possivel badsmell
-    @Override
-    public boolean existe(int codigo) {
 
+    @Override
+ /*   public boolean existe(int codigo) {
+    	
+    	for (Especialidade especialidade : especialidades) {
+			
+    		if(especialidade.getCodigo() == codigo){
+    			
+    			return true;
+    		}
+		}
+    	
+    	return false;
+    	
+    	-- CODIGO ORIGINAL -- ELEONORA --
+    	
         int indiceAux = 0;
         boolean existe = false;
-
         for (int i = 0; i < indice; i++) {
             if (this.vetor[i].getCodigo() == codigo) {
                 indiceAux = i;
                 existe = true;
-
                 break;
             }
         }
-
         return existe;
-    }
+    	
+    	
+    }*/
 
     public Especialidade findById(long id) {
-        for (Especialidade esp: vetor) {
+  
+    	for (Especialidade especialidade : especialidades) {
+			
+    		if(especialidade.getCodigo() == id){
+    			
+    			return especialidade;
+    		}
+		}
+    	
+    	return null;    	
+    	
+ /*       for (Especialidade esp: vetor) {
             if (esp.getCodigo() == id) {
                 return esp;
             }
         }
-        return null;
+        return null; */
+    }
+    private int gerarCodigo(){
+    	
+    	int ultimoIndice = this.size() - 1;
+    	Especialidade ultimaEspecialidade = this.especialidades.get(ultimoIndice);
+    	int novoCodigo = ultimaEspecialidade.getCodigo() + 1;
+    	
+    	return novoCodigo;
     }
 
 

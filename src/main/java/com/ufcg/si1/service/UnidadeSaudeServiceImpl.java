@@ -22,8 +22,8 @@ public class UnidadeSaudeServiceImpl implements UnidadeSaudeService {
         vetor = new Object[100];
         indice = 0;
     }
- 
-    // BADSMELL - Long Method
+
+
     @Override
     public Object procura(int codigo) throws Rep,
             ObjetoInexistenteException {
@@ -49,9 +49,7 @@ public class UnidadeSaudeServiceImpl implements UnidadeSaudeService {
     public List<Object> getAll() {
         return Arrays.asList(vetor);
     }
-    
-    
-    //BAD SMELL - LONG METHOD
+
     @Override
     public void insere(Object us) throws Rep,
             ObjetoJaExistenteException {
@@ -85,7 +83,6 @@ public class UnidadeSaudeServiceImpl implements UnidadeSaudeService {
         indice++;
     }
 
-    //BAD SMELL LONG METHOD - CODIGO POSSIVELMENTE DUPLICADO
     @Override
     public boolean existe(int codigo) {
         int indiceAux = 0;
@@ -112,7 +109,6 @@ public class UnidadeSaudeServiceImpl implements UnidadeSaudeService {
         return existe;
     }
 
-    //BAD SMELL LONG METHOD - CODIGO POSSIVELMENTE DUPLICADO
     public Object findById(long id) {
         for (Object esp: vetor) {
             if (esp instanceof UnidadeSaude){
@@ -130,7 +126,6 @@ public class UnidadeSaudeServiceImpl implements UnidadeSaudeService {
         return null;
     }
 
-  //BAD SMELL LONG METHOD
     @Override
     public Object findByBairro(String bairro) {
         for (Object esp: vetor) {
