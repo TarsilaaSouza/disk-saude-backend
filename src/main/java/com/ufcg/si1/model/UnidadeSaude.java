@@ -53,11 +53,11 @@ public class UnidadeSaude {
         this.especialidades.add(esp);
     }
 
-    public int pegaCodigo() {
+    public int getCodigo() {
         return this.codigo;
     }
 
-    public void mudaCodigo(int cod) {
+    public void setCodigo(int cod) {
         this.codigo = cod;
     }
 

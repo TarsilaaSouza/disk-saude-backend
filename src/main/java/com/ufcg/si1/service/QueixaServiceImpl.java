@@ -14,11 +14,12 @@ public class QueixaServiceImpl implements QueixaService {
 
     private static final AtomicLong counter = new AtomicLong();
 
-    private static List<Queixa> queixas;
-
-    static {
-        queixas = populateDummyQueixas();
-    }
+//    private static List<Queixa> queixas;
+//
+//    static {
+//        queixas = populateDummyQueixas();
+//    }
+    private List<Queixa> queixas = this.populateDummyQueixas();
 
     private static List<Queixa> populateDummyQueixas() {
         List<Queixa> queixas = new ArrayList<Queixa>();
@@ -52,24 +53,34 @@ public class QueixaServiceImpl implements QueixaService {
         queixa.setId(counter.incrementAndGet());
         queixas.add(queixa);
     }
-
+    //recebe uma queixa alterada, pesquisa pela queixa original e a substitui 
+    // pela alterada
+//    public void updateQueixa(Queixa queixa) {
+//        int index = queixas.indexOf(queixa);
+//        queixas.set(index, queixa); 
+//    }
+//
+//    
+ 
     public void updateQueixa(Queixa queixa) {
-        int index = queixas.indexOf(queixa);
-        queixas.set(index, queixa);
+    	
+    	Queixa queixaOriginal = this.findById(queixa.getId());
+        int index = queixas.indexOf(queixaOriginal);
+        queixas.set(index, queixa); 
     }
 
     
     public void deleteQueixaById(long id) {
     	//Possivel badsmell
-        for (Iterator<Queixa> iterator = queixas.iterator(); iterator.hasNext(); ) {
-            Queixa q = iterator.next();
-            if (q.getId() == id) {
-                iterator.remove();
-            }
-        }
+//        for (Iterator<Queixa> iterator = queixas.iterator(); iterator.hasNext(); ) {
+//            Queixa q = iterator.next();
+//            if (q.getId() == id) {
+//                iterator.remove();
+//            }
+//        }
+    	Queixa queixa = this.findById(id);
+    	this.queixas.remove(queixa);
     }
-
-    @Override
     // kkkkkkk mds
     //este metodo nunca eh chamado, mas se precisar estah aqui
     public int size() {

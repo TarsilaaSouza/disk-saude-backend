@@ -189,7 +189,7 @@ public class RestApiController {
         }
 
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/api/unidade/{id}").buildAndExpand(us.pegaCodigo()).toUri());
+        headers.setLocation(ucBuilder.path("/api/unidade/{id}").buildAndExpand(us.getCodigo()).toUri());
         return new ResponseEntity<String>(headers, HttpStatus.CREATED);
     }
 
