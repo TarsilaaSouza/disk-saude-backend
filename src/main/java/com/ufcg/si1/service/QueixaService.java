@@ -23,7 +23,10 @@ public interface QueixaService {
 
     int size();
 
-	Iterator<Queixa> getIterator();
+//	Iterator<Queixa> getIterator();
+    
+    //Substituto do Iterator
+    int numeroDeQueixasAbertas();
 
 
 //	boolean isUserExist(Queixa user);

@@ -9,6 +9,8 @@ import exceptions.ObjetoInexistenteException;
 import exceptions.ObjetoInvalidoException;
 import exceptions.ObjetoJaExistenteException;
 import exceptions.Rep;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +28,7 @@ public class RestApiController {
 	
 	//SEPARAR OS CONTROLLERS EM 1 PARA CADA SERVICE
 
+	@Autowired
     QueixaService queixaService = new QueixaServiceImpl();
     EspecialidadeService especialidadeService = new EspecialidadeServiceImpl();
     UnidadeSaudeService unidadeSaudeService = new UnidadeSaudeServiceImpl();
@@ -281,15 +284,7 @@ public class RestApiController {
     }
 
     private double numeroQueixasAbertas() {
-        int contador = 0;
-        Iterator<Queixa> it = queixaService.getIterator();
-        for (Iterator<Queixa> it1 = it; it1.hasNext(); ) {
-            Queixa q = it1.next();
-            if (q.getSituacao() == Queixa.ABERTA)
-                contador++;
-        }
-
-        return contador;
+        return queixaService.numeroDeQueixasAbertas();
     }
 
 }

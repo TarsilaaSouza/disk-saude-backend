@@ -1,13 +1,17 @@
 package com.ufcg.si1.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Endereco {
 
+	@GeneratedValue
+	@Id
 	private String rua;
-
 	private String uf;
-
 	private String cidade;
-
 	public Endereco(){
 
 	}
