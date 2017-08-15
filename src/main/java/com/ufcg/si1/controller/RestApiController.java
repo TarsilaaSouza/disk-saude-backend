@@ -2,6 +2,9 @@ package com.ufcg.si1.controller;
 
 import br.edu.ufcg.Hospital;
 import com.ufcg.si1.model.*;
+import com.ufcg.si1.prefeitura.PrefeituraExtra;
+import com.ufcg.si1.prefeitura.PrefeituraNormal;
+import com.ufcg.si1.prefeitura.PrefeituraState;
 import com.ufcg.si1.service.*;
 import com.ufcg.si1.util.CustomErrorType;
 import com.ufcg.si1.util.ObjWrapper;
@@ -36,7 +39,7 @@ public class RestApiController {
     /* situação normal =0
        situação extra =1
      */
-    private int situacaoAtualPrefeitura = 0;
+    PrefeituraState prefeituraState = new PrefeituraNormal();
 
 
     // -------------------Retrieve All Complaints---------------------------------------------
@@ -246,30 +249,55 @@ public class RestApiController {
         // dependendo da situacao da prefeitura, o criterio de avaliacao muda
         // se normal, mais de 20% abertas eh ruim, mais de 10 eh regular
         // se extra, mais de 10% abertas eh ruim, mais de 5% eh regular
-        if (situacaoAtualPrefeitura == 0) {
-            if ((double) numeroQueixasAbertas() / queixaService.size() > 0.2) {
-                return new ResponseEntity<ObjWrapper<Integer>>(new ObjWrapper<Integer>(0), HttpStatus.OK);
-            } else {
-                if ((double) numeroQueixasAbertas() / queixaService.size() > 0.1) {
-                    return new ResponseEntity<ObjWrapper<Integer>>(new ObjWrapper<Integer>(1), HttpStatus.OK);
-                }
-            }
-        }
-        if (this.situacaoAtualPrefeitura == 1) {
-            if ((double) numeroQueixasAbertas() / queixaService.size() > 0.1) {
-                return new ResponseEntity<ObjWrapper<Integer>>(new ObjWrapper<Integer>(0), HttpStatus.OK);
-            } else {
-                if ((double) numeroQueixasAbertas() / queixaService.size() > 0.05) {
-                    return new ResponseEntity<ObjWrapper<Integer>>(new ObjWrapper<Integer>(1), HttpStatus.OK);
-                }
-            }
-        }
-
-        //situacao retornada
-        //0: RUIM
-        //1: REGULAR
-        //2: BOM
-        return new ResponseEntity<ObjWrapper<Integer>>(new ObjWrapper<Integer>(2), HttpStatus.OK);
+    	
+    	return prefeituraState.getSituacaoGeralQueixas(numeroQueixasAbertas(),
+    			queixaService.size());
+    	
+    	//METODO ANTIGO
+//        if (situacaoAtualPrefeitura == 0) {
+//            if ((double) numeroQueixasAbertas() / queixaService.size() > 0.2) {
+//                return new ResponseEntity<ObjWrapper<Integer>>(new ObjWrapper<Integer>(0), HttpStatus.OK);
+//            } else {
+//                if ((double) numeroQueixasAbertas() / queixaService.size() > 0.1) {
+//                    return new ResponseEntity<ObjWrapper<Integer>>(new ObjWrapper<Integer>(1), HttpStatus.OK);
+//                }
+//            }
+//        }
+//        if (this.situacaoAtualPrefeitura == 1) {
+//            if ((double) numeroQueixasAbertas() / queixaService.size() > 0.1) {
+//                return new ResponseEntity<ObjWrapper<Integer>>(new ObjWrapper<Integer>(0), HttpStatus.OK);
+//            } else {
+//                if ((double) numeroQueixasAbertas() / queixaService.size() > 0.05) {
+//                    return new ResponseEntity<ObjWrapper<Integer>>(new ObjWrapper<Integer>(1), HttpStatus.OK);
+//                }
+//            }
+//        }
+//
+//        //situacao retornada
+//        //0: RUIM
+//        //1: REGULAR
+//        //2: BOM
+//        return new ResponseEntity<ObjWrapper<Integer>>(new ObjWrapper<Integer>(2), HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/prefeitura/situacao/{situacao}", method = RequestMethod.PUT)
+    public ResponseEntity<?> calcularMediaMedicoPacienteDia(@PathVariable("situacao") int situacao) {
+    	
+    	if(situacao == 0) {
+    	
+    		this.prefeituraState = new PrefeituraNormal();
+    		return new ResponseEntity<List>(HttpStatus.ACCEPTED);
+    	
+    	}else if (situacao == 1) {
+    		
+    		this.prefeituraState = new PrefeituraExtra();
+    		return new ResponseEntity<List>(HttpStatus.ACCEPTED);
+    	
+    	}else {
+    		return new ResponseEntity<List>(HttpStatus.NOT_ACCEPTABLE);
+    	}
+    	
+    	
     }
 
     @RequestMapping(value="/unidade/busca", method= RequestMethod.GET)
