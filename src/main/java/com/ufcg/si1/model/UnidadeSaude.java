@@ -11,29 +11,21 @@ import java.util.List;
         @JsonSubTypes.Type(value = PostoSaude.class, name = "posto")
 })
 public class UnidadeSaude {
-	//classe desnecessaria 
     private int codigo;
 
     private String descricao;
 
     private List<Especialidade> especialidades = new ArrayList<>();
     
-    //private List<Queixa> queixas = new ArrayList<>();
-    // private long [] numeroQueixas = new long[1000];
     private List numeroQueixas = new ArrayList();
-   // int contador = 0;
 
     public UnidadeSaude(String descricao) {
-        this.codigo = 0; // gerado no repositorio
+        this.codigo = 0; 
         this.descricao = descricao;
     }
 
     public void addQueixaProxima(long id) {
-       /* if (this instanceof PostoSaude){
-            numeroQueixas[contador++] = id;
-        } 
-    	this.contador += 1; */
-    	
+       
     	this.numeroQueixas.add(id);
     }
 

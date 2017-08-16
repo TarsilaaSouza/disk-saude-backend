@@ -22,7 +22,6 @@ public interface EspecialidadeService {
     void insere(Especialidade esp)throws Rep,
             ObjetoJaExistenteException;
 
-   // boolean existe(int codigo);
 
     Especialidade findById(long id);
 }

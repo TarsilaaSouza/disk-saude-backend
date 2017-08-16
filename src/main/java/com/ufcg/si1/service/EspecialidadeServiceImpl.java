@@ -13,15 +13,12 @@ import java.util.List;
 @Service("especialidadeService")
 public class EspecialidadeServiceImpl implements EspecialidadeService {
 
-   // private Especialidade[] vetor;
 	private List<Especialidade> especialidades;
     private int indice;
 
-   // private int geraCodigo = 0; // para gerar codigos
 
     public EspecialidadeServiceImpl() {
     	
-        //vetor = new Especialidade[100]; MAS POR QUE 100?
     	
     	this.especialidades = new ArrayList<>();
         this.indice = 0;
@@ -31,13 +28,6 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
     public Especialidade procura(int codigo) throws Rep,
             ObjetoInexistenteException {
 
-       /* int i = 0;
-        while (i < indice) {
-            if (vetor[i].getCodigo() == codigo) {
-                return vetor[i];
-            }
-            i++;
-        } */
     	for (Especialidade especialidade : especialidades) {
 			
     		if(especialidade.getCodigo() == codigo){

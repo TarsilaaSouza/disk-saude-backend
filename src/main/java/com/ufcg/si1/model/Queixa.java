@@ -21,21 +21,18 @@ public class Queixa {
 	@GeneratedValue
 	@Id
 	private int posInTable;
-	private int id; //Gerando ID pelo HashCode
+	private int id; 
 	private String descricao;
 	@OneToOne(cascade= CascadeType.ALL)
 	private Pessoa pessoa;
 
-	public int situacao; // usa variaveis estaticas abaixo
-	/* situacoes da queixa */
+	public int situacao; 
 	
-	//Vale a pena fazer um ENUM? V
-	//Vale fazer o State
 	public static final int ABERTA = 1;
 	public static final int EM_ANDAMENTO = 2;
 	public static final int FECHADA = 3;
 
-	private String comentario = ""; // usado na atualizacao da queixa
+	private String comentario = "";
 	
 	public Queixa(){
 		id=0;
@@ -80,7 +77,6 @@ public class Queixa {
 			throw new ObjetoInvalidoException("Status inválido");
 	}
 	
-	//BAD SMELL - MTOS PARAMETROS NO CONDICIONAL
 	public void fechar(String coment) throws ObjetoInvalidoException {
 		
 		if (this.situacao == Queixa.EM_ANDAMENTO
@@ -148,31 +144,5 @@ public class Queixa {
 			return false;
 		return true;
 	}
-
-	//Desprezando hash and equals antigos
-//	@Override
-//	public int hashCode() {
-//		final int prime = 31;
-//		int result = 1;
-//		result = prime * result + (int) (id ^ (id >>> 32));
-//		return result;
-//	}
-//
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (this == obj)
-//			return true;
-//		if (obj == null)
-//			return false;
-//		if (getClass() != obj.getClass())
-//			return false;
-//		Queixa other = (Queixa) obj;
-//		if (id != other.id)
-//			return false;
-//		return true;
-//	}
-	
-	
-	
 
 }

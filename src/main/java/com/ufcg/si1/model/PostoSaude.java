@@ -12,16 +12,9 @@ public class PostoSaude extends UnidadeSaude{
         this.taxaDiariaAtendimentos = taxa;
     }
 
-    // implementacoes vazias
     public int getAtendentes() {
         return atendentes;
     }
-    
-/*
-    public float taxaDiaria() {
-        return taxaDiariaAtendimentos;
-    }
-*/
     
     public void setAtendentes(int atendentes) {
         this.atendentes = atendentes;

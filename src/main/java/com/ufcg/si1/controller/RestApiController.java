@@ -2,9 +2,6 @@ package com.ufcg.si1.controller;
 
 import br.edu.ufcg.Hospital;
 import com.ufcg.si1.model.*;
-import com.ufcg.si1.prefeitura.PrefeituraExtra;
-import com.ufcg.si1.prefeitura.PrefeituraNormal;
-import com.ufcg.si1.prefeitura.PrefeituraState;
 import com.ufcg.si1.service.*;
 import com.ufcg.si1.util.CustomErrorType;
 import com.ufcg.si1.util.ObjWrapper;
@@ -60,21 +57,12 @@ public class RestApiController {
     @RequestMapping(value = "/queixa/", method = RequestMethod.POST)
     public ResponseEntity<?> abrirQueixa(@RequestBody Queixa queixa, UriComponentsBuilder ucBuilder) {
 
-        //este codigo estava aqui, mas nao precisa mais
-        /*if (queixaService.doesQueixaExist(queixa)) {
-			return new ResponseEntity(new CustomErrorType("Esta queixa já existe+
-					queixa.pegaDescricao()),HttpStatus.CONFLICT);
-		}*/
-
         try {
             queixa.abrir();
         } catch (ObjetoInvalidoException e) {
             return new ResponseEntity<List>(HttpStatus.BAD_REQUEST);
         }
         queixaService.saveQueixa(queixa);
-
-       // HttpHeaders headers = new HttpHeaders();
-        //headers.setLocation(ucBuilder.path("/api/queixa/{id}").buildAndExpand(queixa.getId()).toUri());
 
         return new ResponseEntity<Queixa>(queixa, HttpStatus.CREATED);
     }
@@ -91,7 +79,7 @@ public class RestApiController {
         return new ResponseEntity<Queixa>(q, HttpStatus.OK);
     }
 
-
+    //Precisa concertar
     @RequestMapping(value = "/queixa/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> updateQueixa(@PathVariable("id") long id, @RequestBody Queixa queixa) {
 
@@ -243,45 +231,17 @@ public class RestApiController {
         return new ResponseEntity<ObjWrapper<Double>>(new ObjWrapper<Double>(new Double(c)), HttpStatus.OK);
     }
 
+    //Reparar no relatorio
     @RequestMapping(value = "/geral/situacao", method = RequestMethod.GET)
     public ResponseEntity<?> getSituacaoGeralQueixas() {
-
-        // dependendo da situacao da prefeitura, o criterio de avaliacao muda
-        // se normal, mais de 20% abertas eh ruim, mais de 10 eh regular
-        // se extra, mais de 10% abertas eh ruim, mais de 5% eh regular
     	
     	return prefeituraState.getSituacaoGeralQueixas(numeroQueixasAbertas(),
     			queixaService.size());
-    	
-    	//METODO ANTIGO
-//        if (situacaoAtualPrefeitura == 0) {
-//            if ((double) numeroQueixasAbertas() / queixaService.size() > 0.2) {
-//                return new ResponseEntity<ObjWrapper<Integer>>(new ObjWrapper<Integer>(0), HttpStatus.OK);
-//            } else {
-//                if ((double) numeroQueixasAbertas() / queixaService.size() > 0.1) {
-//                    return new ResponseEntity<ObjWrapper<Integer>>(new ObjWrapper<Integer>(1), HttpStatus.OK);
-//                }
-//            }
-//        }
-//        if (this.situacaoAtualPrefeitura == 1) {
-//            if ((double) numeroQueixasAbertas() / queixaService.size() > 0.1) {
-//                return new ResponseEntity<ObjWrapper<Integer>>(new ObjWrapper<Integer>(0), HttpStatus.OK);
-//            } else {
-//                if ((double) numeroQueixasAbertas() / queixaService.size() > 0.05) {
-//                    return new ResponseEntity<ObjWrapper<Integer>>(new ObjWrapper<Integer>(1), HttpStatus.OK);
-//                }
-//            }
-//        }
-//
-//        //situacao retornada
-//        //0: RUIM
-//        //1: REGULAR
-//        //2: BOM
-//        return new ResponseEntity<ObjWrapper<Integer>>(new ObjWrapper<Integer>(2), HttpStatus.OK);
+
     }
     
     @RequestMapping(value = "/prefeitura/situacao/{situacao}", method = RequestMethod.PUT)
-    public ResponseEntity<?> calcularMediaMedicoPacienteDia(@PathVariable("situacao") int situacao) {
+    public ResponseEntity<?> getSituacaoPrefeitura(@PathVariable("situacao") int situacao) {
     	
     	if(situacao == 0) {
     	
@@ -293,7 +253,12 @@ public class RestApiController {
     		this.prefeituraState = new PrefeituraExtra();
     		return new ResponseEntity<List>(HttpStatus.ACCEPTED);
     	
-    	}else {
+    	}else if(situacao == 2) {
+    		this.prefeituraState = new PrefeituraCaos();
+    		return new ResponseEntity<List>(HttpStatus.ACCEPTED);
+    	}
+    	
+    	else {
     		return new ResponseEntity<List>(HttpStatus.NOT_ACCEPTABLE);
     	}
     	
@@ -316,4 +281,3 @@ public class RestApiController {
     }
 
 }
-
