@@ -25,12 +25,8 @@ public class Queixa {
 	private String descricao;
 	@OneToOne(cascade= CascadeType.ALL)
 	private Pessoa pessoa;
-
-	public int situacao; 
 	
-	public static final int ABERTA = 1;
-	public static final int EM_ANDAMENTO = 2;
-	public static final int FECHADA = 3;
+	QueixaState queixaState;
 
 	private String comentario = "";
 	
@@ -38,13 +34,11 @@ public class Queixa {
 		id=0;
 	}
 	
-	//BAD SMELL - LONGA LISTA DE PARAMETROS
-	public Queixa(int id, String descricao, int situacao, String comentario,
+	public Queixa(int id, String descricao, String comentario,
                   String nome, String email,
 				  String rua, String uf, String cidade) {
 		this.id = id;
 		this.descricao = descricao;
-		this.situacao = situacao;
 		this.comentario = comentario;
 		this.pessoa = new Pessoa(nome, email, rua, uf, cidade);
 	}
@@ -66,27 +60,15 @@ public class Queixa {
 	}
 
 	public int getSituacao() {
-		return situacao;
+		return queixaState.getStatus();
 	}
 
 	public void abrir() throws ObjetoInvalidoException {
-		if (this.situacao != Queixa.EM_ANDAMENTO){
-			this.situacao = Queixa.ABERTA;
-		
-		}else
-			throw new ObjetoInvalidoException("Status inválido");
+		queixaState = new QueixaAberta();
 	}
 	
-	public void fechar(String coment) throws ObjetoInvalidoException {
-		
-		if (this.situacao == Queixa.EM_ANDAMENTO
-				|| this.situacao == Queixa.ABERTA) {
-		
-			this.situacao = Queixa.FECHADA;
-			this.comentario = coment;
-		
-		} else
-			throw new ObjetoInvalidoException("Status Inválido");
+	public void fechar() {
+		queixaState = new QueixaFechada();
 	}
 
 	public String getComentario() {
@@ -112,7 +94,7 @@ public class Queixa {
 		result = prime * result + ((comentario == null) ? 0 : comentario.hashCode());
 		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + ((pessoa == null) ? 0 : pessoa.hashCode());
-		result = prime * result + situacao;
+		result = prime * result + posInTable;
 		return result;
 	}
 
@@ -140,9 +122,8 @@ public class Queixa {
 				return false;
 		} else if (!pessoa.equals(other.pessoa))
 			return false;
-		if (situacao != other.situacao)
+		if (posInTable != other.posInTable)
 			return false;
 		return true;
 	}
-
 }

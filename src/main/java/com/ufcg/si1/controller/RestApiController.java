@@ -112,7 +112,7 @@ public class RestApiController {
 
     @RequestMapping(value = "/queixa/fechamento", method = RequestMethod.POST)
     public ResponseEntity<?> fecharQueixa(@RequestBody Queixa queixaAFechar) {
-        queixaAFechar.situacao = Queixa.FECHADA;
+        queixaAFechar.fechar();
         queixaService.updateQueixa(queixaAFechar);
         return new ResponseEntity<Queixa>(queixaAFechar, HttpStatus.OK);
     }
@@ -261,8 +261,6 @@ public class RestApiController {
     	else {
     		return new ResponseEntity<List>(HttpStatus.NOT_ACCEPTABLE);
     	}
-    	
-    	
     }
 
     @RequestMapping(value="/unidade/busca", method= RequestMethod.GET)

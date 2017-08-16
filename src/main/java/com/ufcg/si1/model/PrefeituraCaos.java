@@ -10,11 +10,11 @@ public class PrefeituraCaos implements PrefeituraState {
 	@Override
 	public ResponseEntity<?> getSituacaoGeralQueixas(double numQueixasAbertas, int numTotalQueixas) {
 		
-		if (numQueixasAbertas / numTotalQueixas > 0.2) {
+		if (numQueixasAbertas / numTotalQueixas > 0.5) {
 	           
 			return generateResponseEntity(RUIM);
        
-		}else if (numQueixasAbertas / numTotalQueixas > 0.1) {
+		}else if (numQueixasAbertas / numTotalQueixas > 0.2) {
          
 			return generateResponseEntity(REGULAR);
         
