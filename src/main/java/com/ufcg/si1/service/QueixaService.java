@@ -1,10 +1,10 @@
 package com.ufcg.si1.service;
 
 
-import java.util.Iterator;
 import java.util.List;
 
 import com.ufcg.si1.model.queixa.Queixa;
+import com.ufcg.si1.model.queixa.QueixaAnimal;
 
 public interface QueixaService {
 
@@ -12,11 +12,13 @@ public interface QueixaService {
 
 
     void saveQueixa(Queixa queixa);
+    
+    void saveAnimalQueixa(QueixaAnimal queixa);
 
 
 	Queixa findById(long id);
 
-	void updateQueixa(Queixa user);
+//	void updateQueixa(Queixa user);
 
 
 	void deleteQueixaById(long id);

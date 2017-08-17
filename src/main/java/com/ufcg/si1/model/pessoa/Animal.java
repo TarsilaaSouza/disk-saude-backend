@@ -1,14 +1,29 @@
 package com.ufcg.si1.model.pessoa;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Animal {
 	
+	@GeneratedValue
+	@Id
+	int idInTable;
+	
 	private String tipo;
-	private Endereco endereco;
+	@OneToOne
+	private Endereco local;
+	
+	public Animal() {
+		super();
+	}
 	
 	public Animal(String tipo, String rua, String uf, String cidade){
 		
 		this.tipo = tipo;
-		this.endereco = new Endereco(rua, uf, cidade);
+		this.local = new Endereco(rua, uf, cidade);
 	}
 
 	public String getTipo() {
@@ -20,10 +35,10 @@ public class Animal {
 	}
 
 	public Endereco getEndereco() {
-		return endereco;
+		return local;
 	}
 
 	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
+		this.local = endereco;
 	}
 }

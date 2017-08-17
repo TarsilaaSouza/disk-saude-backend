@@ -1,14 +1,13 @@
 package com.ufcg.si1.service;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ufcg.si1.model.queixa.Queixa;
+import com.ufcg.si1.model.queixa.QueixaAnimal;
+import com.ufcg.si1.repository.QueixaAnimalRepository;
 import com.ufcg.si1.repository.QueixaRepository;
 
 
@@ -17,8 +16,12 @@ public class QueixaServiceImpl implements QueixaService {
 
     
     private static final int ABERTA = 1;
+    
 	@Autowired
 	QueixaRepository queixaRepository;
+	
+	@Autowired
+	QueixaAnimalRepository queixaAnimalRepository;
     
    
 
@@ -31,18 +34,11 @@ public class QueixaServiceImpl implements QueixaService {
         queixaRepository.save(queixa);
     }
     
-    
-    public void updateQueixa(Queixa queixa) {
-    	
-    	Queixa queixaOriginal = this.findById(queixa.getId());
-    	
-    	queixaOriginal.setComentario(queixa.getComentario());
-    	queixaOriginal.setDescricao(queixa.getDescricao());
-    	queixaOriginal.setSolicitante(queixa.getSolicitante());
-       
+    public void saveAnimalQueixa(QueixaAnimal queixa) {
+    	queixa.setId();
+    	queixaAnimalRepository.save(queixa);
     }
-
-    
+       
     public void deleteQueixaById(long id) {
     	Queixa queixa = this.findById(id);
     	this.queixaRepository.delete(queixa);
@@ -78,7 +74,4 @@ public class QueixaServiceImpl implements QueixaService {
     	
     	return contador;
     }
-
-
-
 }

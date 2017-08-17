@@ -7,6 +7,7 @@ import com.ufcg.si1.model.prefeitura.PrefeituraExtra;
 import com.ufcg.si1.model.prefeitura.PrefeituraNormal;
 import com.ufcg.si1.model.prefeitura.PrefeituraStrategy;
 import com.ufcg.si1.model.queixa.Queixa;
+import com.ufcg.si1.model.queixa.QueixaAnimal;
 import com.ufcg.si1.model.queixa.QueixaStatus;
 import com.ufcg.si1.model.saude.Especialidade;
 import com.ufcg.si1.model.saude.PostoSaude;
@@ -75,6 +76,21 @@ public class RestApiController {
 
         return new ResponseEntity<Queixa>(queixa, HttpStatus.CREATED);
     }
+    
+    @RequestMapping(value = "/queixa/animal/", method = RequestMethod.POST)
+    public ResponseEntity<?> abrirQueixaAnimal(@RequestBody QueixaAnimal queixaAnimal,
+    		UriComponentsBuilder ucBuilder) {
+
+        try {
+            queixaAnimal.abrir();
+        } catch (ObjetoInvalidoException e) {
+            return new ResponseEntity<List>(HttpStatus.BAD_REQUEST);
+        }
+        queixaService.saveAnimalQueixa(queixaAnimal);
+    	
+   
+        return new ResponseEntity<QueixaAnimal>(queixaAnimal, HttpStatus.CREATED);
+    }
 
 
     @RequestMapping(value = "/queixa/{id}", method = RequestMethod.GET)
@@ -123,7 +139,7 @@ public class RestApiController {
     @RequestMapping(value = "/queixa/fechamento", method = RequestMethod.POST)
     public ResponseEntity<?> fecharQueixa(@RequestBody Queixa queixaAFechar) {
         queixaAFechar.fechar();
-        queixaService.updateQueixa(queixaAFechar);
+        queixaService.saveQueixa(queixaAFechar);
         return new ResponseEntity<Queixa>(queixaAFechar, HttpStatus.OK);
     }
     
