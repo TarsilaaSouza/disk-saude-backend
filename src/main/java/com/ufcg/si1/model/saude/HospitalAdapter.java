@@ -1,4 +1,4 @@
-package com.ufcg.si1.model;
+package com.ufcg.si1.model.saude;
 
 import br.edu.ufcg.Hospital;
 

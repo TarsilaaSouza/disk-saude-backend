@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.ufcg.si1.model.UnidadeSaude;
+import com.ufcg.si1.model.saude.UnidadeSaude;
 
 import exceptions.ObjetoInexistenteException;
 import exceptions.ObjetoJaExistenteException;

@@ -1,4 +1,4 @@
-package com.ufcg.si1.model;
+package com.ufcg.si1.model.queixa;
 
 import exceptions.ObjetoInvalidoException;
 
@@ -14,6 +14,7 @@ import javax.persistence.OneToOne;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
+import com.ufcg.si1.model.pessoa.Pessoa;
 import com.ufcg.si1.repository.QueixaRepository;
 
 @Entity

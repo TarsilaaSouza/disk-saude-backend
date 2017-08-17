@@ -2,7 +2,7 @@ package com.ufcg.si1.service;
 
 import java.util.List;
 
-import com.ufcg.si1.model.UnidadeSaude;
+import com.ufcg.si1.model.saude.UnidadeSaude;
 
 import exceptions.ObjetoInexistenteException;
 import exceptions.ObjetoJaExistenteException;

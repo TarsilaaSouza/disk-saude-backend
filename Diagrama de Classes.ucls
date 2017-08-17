@@ -2,8 +2,8 @@
 <class-diagram version="1.2.0" icons="true" automaticImage="JPEG" always-add-relationships="false" 
   generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true" 
   router="FAN">  
-  <class id="1" language="java" name="com.ufcg.si1.model.Especialidade" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/Especialidade.java" binary="false" 
+  <class id="1" language="java" name="com.ufcg.si1.model.saude.Especialidade" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/saude/Especialidade.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="207" width="149" x="2853" y="342"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -81,8 +81,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="9" language="java" name="com.ufcg.si1.model.Endereco" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/Endereco.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="9" language="java" name="com.ufcg.si1.model.pessoa.Endereco" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/pessoa/Endereco.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="207" width="170" x="882" y="643"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -90,8 +91,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="com.ufcg.si1.model.PostoSaude" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/PostoSaude.java" binary="false" 
+  <class id="10" language="java" name="com.ufcg.si1.model.saude.PostoSaude" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/saude/PostoSaude.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="189" width="209" x="3042" y="342"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -130,8 +131,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="com.ufcg.si1.model.Queixa" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/Queixa.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="14" language="java" name="com.ufcg.si1.model.queixa.Queixa" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/queixa/Queixa.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="477" width="310" x="882" y="-175"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -179,8 +181,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="com.ufcg.si1.model.Pessoa" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/Pessoa.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="19" language="java" name="com.ufcg.si1.model.pessoa.Pessoa" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/pessoa/Pessoa.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="261" width="222" x="882" y="342"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -188,8 +191,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="com.ufcg.si1.model.UnidadeSaude" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/UnidadeSaude.java" binary="false" 
+  <class id="20" language="java" name="com.ufcg.si1.model.saude.UnidadeSaude" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/saude/UnidadeSaude.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="261" width="233" x="3042" y="-175"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -209,81 +212,101 @@
     </display>  
   </interface>  
   <association id="22">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="23" name="especialidades"/>      
-      <multiplicity id="24" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="25">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="20"/>  
-  </generalization>  
-  <realization id="26">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="21"/>  
-  </realization>  
-  <association id="27">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="28" name="queixaService"/>      
-      <multiplicity id="29" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="30">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="31" name="pessoa"/>      
-      <multiplicity id="32" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="33">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="34" name="especialidadeService"/>      
-      <multiplicity id="35" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="36">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="37" name="unidadeSaudeService"/>      
-      <multiplicity id="38" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="39">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="40" name="queixaRepository"/>      
-      <multiplicity id="41" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="42">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="8"/>  
-  </realization>  
-  <realization id="43">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="2"/>  
-  </realization>  
-  <association id="44">    
     <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="45" name="endereco"/>      
-      <multiplicity id="46" minimum="0" maximum="1"/>    
+      <attribute id="23" name="endereco">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="24" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="47">    
+  <realization id="25">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <realization id="26">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <association id="27">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="28" name="especialidadeService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="29" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="30">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <association id="31">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="32" name="unidadeSaudeService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="33" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="34">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="35" name="queixaRepository">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="36" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="37">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="38" name="queixaService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="39" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="40">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <association id="41">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="42" name="pessoa">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="43" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="44">    
     <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="48" name="especialidades"/>      
-      <multiplicity id="49" minimum="0" maximum="2147483647"/>    
+      <attribute id="45" name="especialidades">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="46" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  

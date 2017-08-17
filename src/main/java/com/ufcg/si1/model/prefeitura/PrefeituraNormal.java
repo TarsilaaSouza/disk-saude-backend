@@ -1,4 +1,4 @@
-package com.ufcg.si1.model;
+package com.ufcg.si1.model.prefeitura;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

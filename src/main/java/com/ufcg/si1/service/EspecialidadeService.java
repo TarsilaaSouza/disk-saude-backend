@@ -1,11 +1,12 @@
 package com.ufcg.si1.service;
 
-import com.ufcg.si1.model.Especialidade;
 import exceptions.ObjetoInexistenteException;
 import exceptions.ObjetoJaExistenteException;
 import exceptions.Rep;
 
 import java.util.List;
+
+import com.ufcg.si1.model.saude.Especialidade;
 
 
 public interface EspecialidadeService {

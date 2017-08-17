@@ -4,7 +4,7 @@ package com.ufcg.si1.service;
 import java.util.Iterator;
 import java.util.List;
 
-import com.ufcg.si1.model.Queixa;
+import com.ufcg.si1.model.queixa.Queixa;
 
 public interface QueixaService {
 

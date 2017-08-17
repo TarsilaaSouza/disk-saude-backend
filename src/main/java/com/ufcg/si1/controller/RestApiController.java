@@ -2,6 +2,14 @@ package com.ufcg.si1.controller;
 
 import br.edu.ufcg.Hospital;
 import com.ufcg.si1.model.*;
+import com.ufcg.si1.model.prefeitura.PrefeituraCaos;
+import com.ufcg.si1.model.prefeitura.PrefeituraExtra;
+import com.ufcg.si1.model.prefeitura.PrefeituraNormal;
+import com.ufcg.si1.model.prefeitura.PrefeituraState;
+import com.ufcg.si1.model.queixa.Queixa;
+import com.ufcg.si1.model.saude.Especialidade;
+import com.ufcg.si1.model.saude.PostoSaude;
+import com.ufcg.si1.model.saude.UnidadeSaude;
 import com.ufcg.si1.service.*;
 import com.ufcg.si1.util.CustomErrorType;
 import com.ufcg.si1.util.ObjWrapper;
