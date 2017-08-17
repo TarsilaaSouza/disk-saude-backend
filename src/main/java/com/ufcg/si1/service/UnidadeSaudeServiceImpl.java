@@ -235,4 +235,19 @@ public class UnidadeSaudeServiceImpl implements UnidadeSaudeService {
 //        return null;
 //    }
 
+    
+    public List<UnidadeSaude> findByEspecialidade(Especialidade especialidade){
+    	
+    	List<UnidadeSaude> unidadesEncontradas = new ArrayList<>();
+    	
+    	for (UnidadeSaude unidadeSaude : unidades) {
+    		
+    		if(unidadeSaude.findEspecialidade(especialidade)){
+    			
+    			unidadesEncontradas.add(unidadeSaude);
+    		}
+		}
+    	
+    	return unidadesEncontradas;
+    }
 }

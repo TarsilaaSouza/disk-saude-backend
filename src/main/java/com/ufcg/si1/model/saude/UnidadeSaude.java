@@ -44,7 +44,21 @@ public class UnidadeSaude {
     public void adicionarEspecialidade(Especialidade esp) {
         this.especialidades.add(esp);
     }
-
+    
+    public boolean findEspecialidade(Especialidade esp){
+    	
+    	for (Especialidade especialidade : especialidades) {
+			
+    		if(especialidade.getCodigo() == esp.getCodigo()){
+    			
+    			return true;
+    		}
+		}
+    	return false;
+    	
+    }
+    
+    
     public int getCodigo() {
         return this.codigo;
     }
