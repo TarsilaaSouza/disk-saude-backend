@@ -62,6 +62,10 @@ public class Queixa {
 		this.descricao = descricao;
 	}
 
+	public void setSituacao (QueixaStatus status){
+		this.queixaStatus = status;
+	}
+	
 	public int getSituacao() {
 		return queixaStatus.vallue;
 	}

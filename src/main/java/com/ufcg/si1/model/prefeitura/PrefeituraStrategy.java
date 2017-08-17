@@ -2,7 +2,7 @@ package com.ufcg.si1.model.prefeitura;
 
 import org.springframework.http.ResponseEntity;
 
-public interface PrefeituraState {
+public interface PrefeituraStrategy {
 	
 	static final int BOM = 2;
 	static final int REGULAR = 1;

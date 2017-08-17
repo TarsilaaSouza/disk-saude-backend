@@ -5,8 +5,9 @@ import com.ufcg.si1.model.*;
 import com.ufcg.si1.model.prefeitura.PrefeituraCaos;
 import com.ufcg.si1.model.prefeitura.PrefeituraExtra;
 import com.ufcg.si1.model.prefeitura.PrefeituraNormal;
-import com.ufcg.si1.model.prefeitura.PrefeituraState;
+import com.ufcg.si1.model.prefeitura.PrefeituraStrategy;
 import com.ufcg.si1.model.queixa.Queixa;
+import com.ufcg.si1.model.queixa.QueixaStatus;
 import com.ufcg.si1.model.saude.Especialidade;
 import com.ufcg.si1.model.saude.PostoSaude;
 import com.ufcg.si1.model.saude.UnidadeSaude;
@@ -44,7 +45,7 @@ public class RestApiController {
     /* situação normal =0
        situação extra =1
      */
-    PrefeituraState prefeituraState = new PrefeituraNormal();
+    PrefeituraStrategy prefeituraState = new PrefeituraNormal();
 
 
     // -------------------Retrieve All Complaints---------------------------------------------
@@ -124,6 +125,30 @@ public class RestApiController {
         queixaService.updateQueixa(queixaAFechar);
         return new ResponseEntity<Queixa>(queixaAFechar, HttpStatus.OK);
     }
+    
+    @RequestMapping(value = "/queixa/modificacao/{comentario}/{status}/{id}",
+    		method = RequestMethod.PUT)
+    public ResponseEntity<?> modificarQueixa(
+    		@PathVariable("comentario") String comentario,
+    		@PathVariable("status") int status,
+    		@PathVariable("id") int id) {
+        
+    	Queixa queixaAtual = queixaService.findById(id);
+    	
+    	if (queixaAtual.equals(null)){
+    		return new ResponseEntity<List>(HttpStatus.NOT_FOUND);
+    	
+    	}else if (status == QueixaStatus.EM_ANDAMENTO.vallue){
+      		queixaAtual.setSituacao(QueixaStatus.EM_ANDAMENTO);
+    	
+    	}else if (status == QueixaStatus.FECHADA.vallue){
+    		queixaAtual.setSituacao(QueixaStatus.FECHADA);
+    	}
+    	
+		queixaAtual.setComentario(comentario);
+		queixaService.saveQueixa(queixaAtual);
+        return new ResponseEntity<Queixa>(queixaAtual, HttpStatus.OK);
+    }
 
 
     //Especialidade
@@ -139,6 +164,7 @@ public class RestApiController {
         } catch (ObjetoInexistenteException e) {
             return new ResponseEntity<List>(HttpStatus.NOT_FOUND);
         }
+        //OLHAR
         if (us instanceof UnidadeSaude){
             UnidadeSaude us1 = (UnidadeSaude) us;
             return new ResponseEntity<>(us1.getEspecialidades(), HttpStatus.OK);
@@ -249,7 +275,7 @@ public class RestApiController {
     }
     
     @RequestMapping(value = "/prefeitura/situacao/{situacao}", method = RequestMethod.PUT)
-    public ResponseEntity<?> getSituacaoPrefeitura(@PathVariable("situacao") int situacao) {
+    public ResponseEntity<?> setSituacaoPrefeitura(@PathVariable("situacao") int situacao) {
     	
     	if(situacao == 0) {
     	

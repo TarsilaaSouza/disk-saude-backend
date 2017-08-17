@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.ufcg.si1.util.ObjWrapper;
 
-public class PrefeituraNormal implements PrefeituraState {
+public class PrefeituraNormal implements PrefeituraStrategy {
 
 	@Override
 	public ResponseEntity<?> getSituacaoGeralQueixas(double numQueixasAbertas,

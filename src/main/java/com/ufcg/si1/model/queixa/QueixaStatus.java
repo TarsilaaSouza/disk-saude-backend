@@ -11,5 +11,5 @@ public enum QueixaStatus {
 	QueixaStatus(int vallue) {
 		this.vallue = vallue;
 	}
-
+	
 }
