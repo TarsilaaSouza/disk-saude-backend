@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +26,11 @@ public class Queixa {
 	private String descricao;
 	@OneToOne(cascade= CascadeType.ALL)
 	private Pessoa pessoa;
-	
-	QueixaState queixaState;
 
 	private String comentario = "";
+	
+	
+	private QueixaStatus queixaStatus;
 	
 	public Queixa(){
 		id=0;
@@ -60,15 +62,15 @@ public class Queixa {
 	}
 
 	public int getSituacao() {
-		return queixaState.getStatus();
+		return queixaStatus.vallue;
 	}
 
 	public void abrir() throws ObjetoInvalidoException {
-		queixaState = new QueixaAberta();
+		queixaStatus = QueixaStatus.ABERTA;
 	}
 	
 	public void fechar() {
-		queixaState = new QueixaFechada();
+		queixaStatus = QueixaStatus.FECHADA;
 	}
 
 	public String getComentario() {

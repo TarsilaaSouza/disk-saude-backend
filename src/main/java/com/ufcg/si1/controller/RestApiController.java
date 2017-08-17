@@ -141,7 +141,7 @@ public class RestApiController {
 
     @RequestMapping(value = "/unidade/", method = RequestMethod.GET)
     public ResponseEntity<?> getAllUnidades() {
-        List<Object> unidades = unidadeSaudeService.getAll();
+        List<UnidadeSaude> unidades = unidadeSaudeService.getAll();
         if (unidades.isEmpty()) return new ResponseEntity<List>(HttpStatus.NOT_FOUND);
         else{
             List<UnidadeSaude> unidadeSaudes = new ArrayList<>();
