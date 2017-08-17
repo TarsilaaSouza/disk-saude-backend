@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.ufcg.si1.model.saude.Especialidade;
 import com.ufcg.si1.model.saude.UnidadeSaude;
 
 import exceptions.ObjetoInexistenteException;
@@ -233,4 +234,5 @@ public class UnidadeSaudeServiceImpl implements UnidadeSaudeService {
 //        }
 //        return null;
 //    }
+
 }
