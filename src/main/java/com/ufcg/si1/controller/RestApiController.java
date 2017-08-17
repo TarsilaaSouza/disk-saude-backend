@@ -45,7 +45,7 @@ public class RestApiController {
     /* situação normal =0
        situação extra =1
      */
-    PrefeituraStrategy prefeituraState = new PrefeituraNormal();
+    PrefeituraStrategy prefeituraStrategy = new PrefeituraNormal();
 
 
     // -------------------Retrieve All Complaints---------------------------------------------
@@ -88,7 +88,7 @@ public class RestApiController {
         return new ResponseEntity<Queixa>(q, HttpStatus.OK);
     }
 
-    //Precisa concertar
+
     @RequestMapping(value = "/queixa/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> updateQueixa(@PathVariable("id") long id, @RequestBody Queixa queixa) {
 
@@ -97,13 +97,14 @@ public class RestApiController {
         if (currentQueixa == null) {
             return new ResponseEntity(new CustomErrorType("Unable to upate. Queixa with id " + id + " not found."),
                     HttpStatus.NOT_FOUND);
+        }else {
+        	currentQueixa.setDescricao(queixa.getDescricao());
+            currentQueixa.setComentario(queixa.getComentario());
+            
+            queixaService.saveQueixa(currentQueixa);
+            
+            return new ResponseEntity<Queixa>(currentQueixa, HttpStatus.OK);
         }
-
-        currentQueixa.setDescricao(queixa.getDescricao());
-        currentQueixa.setComentario(queixa.getComentario());
-
-        queixaService.updateQueixa(currentQueixa);
-        return new ResponseEntity<Queixa>(currentQueixa, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/queixa/{id}", method = RequestMethod.DELETE)
@@ -269,7 +270,7 @@ public class RestApiController {
     @RequestMapping(value = "/geral/situacao", method = RequestMethod.GET)
     public ResponseEntity<?> getSituacaoGeralQueixas() {
     	
-    	return prefeituraState.getSituacaoGeralQueixas(numeroQueixasAbertas(),
+    	return prefeituraStrategy.getSituacaoGeralQueixas(numeroQueixasAbertas(),
     			queixaService.size());
 
     }
@@ -279,16 +280,16 @@ public class RestApiController {
     	
     	if(situacao == 0) {
     	
-    		this.prefeituraState = new PrefeituraNormal();
+    		this.prefeituraStrategy = new PrefeituraNormal();
     		return new ResponseEntity<List>(HttpStatus.ACCEPTED);
     	
     	}else if (situacao == 1) {
     		
-    		this.prefeituraState = new PrefeituraExtra();
+    		this.prefeituraStrategy = new PrefeituraExtra();
     		return new ResponseEntity<List>(HttpStatus.ACCEPTED);
     	
     	}else if(situacao == 2) {
-    		this.prefeituraState = new PrefeituraCaos();
+    		this.prefeituraStrategy = new PrefeituraCaos();
     		return new ResponseEntity<List>(HttpStatus.ACCEPTED);
     	}
     	

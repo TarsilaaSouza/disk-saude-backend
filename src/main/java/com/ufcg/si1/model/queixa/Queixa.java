@@ -51,7 +51,9 @@ public class Queixa {
 	}
 
 	public void setId() {
-		this.id = this.hashCode();
+		if(this.id == 0) {
+			this.id = this.hashCode();
+		}
 	}
 
 	public String getDescricao() {
@@ -102,6 +104,11 @@ public class Queixa {
 		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + ((pessoa == null) ? 0 : pessoa.hashCode());
 		result = prime * result + posInTable;
+		
+		if(result < 0) {
+			return result * -1;
+		}
+		
 		return result;
 	}
 
