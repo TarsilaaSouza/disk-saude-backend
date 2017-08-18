@@ -70,11 +70,13 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
     public void insere(Especialidade especialidade) throws Rep,
             ObjetoJaExistenteException {
     	
-    	int novoCodigo = this.gerarCodigo();
+//    	int novoCodigo = this.gerarCodigo();
     	
        // especialidade.setCodigo(++geraCodigo);
     	
-    	especialidade.setCodigo(novoCodigo);
+    	
+    	//Codigo agora é gerado pelo hash code
+    	especialidade.setCodigo();
 
        /* if (indice == this.vetor.length) {
             throw new Rep("Erro ao incluir no array");
@@ -83,9 +85,9 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
         por que ter uma restricao de especialidades?
 */
     	
-        if (this.findById(especialidade.getCodigo()) != null) {
+        if (this.findByCodigo(especialidade.getCodigo()) != null) {
         	
-            throw new ObjetoJaExistenteException("Objeto jah existe no array");
+            throw new ObjetoJaExistenteException("Objeto ja existe no array");
         }
 
         this.especialidades.add(especialidade);
@@ -122,7 +124,7 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
     	
     }*/
 
-    public Especialidade findById(long id) {
+    public Especialidade findByCodigo(long id) {
   
     	for (Especialidade especialidade : especialidades) {
 			
@@ -141,14 +143,4 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
         }
         return null; */
     }
-    private int gerarCodigo(){
-    	
-    	int ultimoIndice = this.size() - 1;
-    	Especialidade ultimaEspecialidade = this.especialidades.get(ultimoIndice);
-    	int novoCodigo = ultimaEspecialidade.getCodigo() + 1;
-    	
-    	return novoCodigo;
-    }
-
-
 }

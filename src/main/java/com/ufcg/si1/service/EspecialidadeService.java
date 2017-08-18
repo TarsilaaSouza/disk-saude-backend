@@ -24,5 +24,5 @@ public interface EspecialidadeService {
             ObjetoJaExistenteException;
 
 
-    Especialidade findById(long id);
+    Especialidade findByCodigo(long id);
 }

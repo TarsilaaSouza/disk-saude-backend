@@ -15,12 +15,11 @@ public interface UnidadeSaudeService {
 
     List<UnidadeSaude> getAll();
 
-    void insere(UnidadeSaude us)throws Rep,
-            ObjetoJaExistenteException;
+    void insere(UnidadeSaude us) throws ObjetoJaExistenteException;
 
     boolean existe(int codigo);
 
     UnidadeSaude findById(long id);
 
-    UnidadeSaude findByBairro(String bairro);
+    List<UnidadeSaude> findByBairro(String bairro);
 }

@@ -75,9 +75,9 @@ public class UnidadeSaudeServiceImpl implements UnidadeSaudeService {
 //	}
 //
 //
-	private boolean verificaUnidade(UnidadeSaude unidade) {
-		return unidade instanceof UnidadeSaude;
-	}
+//	private boolean verificaUnidade(UnidadeSaude unidade) {
+//		return unidade instanceof UnidadeSaude;
+//	}
 
     @Override
     public List<UnidadeSaude> getAll() {
@@ -86,21 +86,14 @@ public class UnidadeSaudeServiceImpl implements UnidadeSaudeService {
     }
 // daqui p baixo, so mexe quando fizer hospital
     @Override
-    public void insere(UnidadeSaude us) throws Rep,
-            ObjetoJaExistenteException {
+    public void insere(UnidadeSaude unidadeSaude) throws ObjetoJaExistenteException {
     	
-    	if(this.verificaUnidade(us)){
-    		
-    		if(!this.existe(us.getCodigo())){
-    			
-    			us.setCodigo(geraCodigo++);
-    			this.unidades.add(us);
-    		}
-    			
-    		throw new ObjetoJaExistenteException("Objeto jah existe no array");
+    	if(this.unidades.contains(unidadeSaude)) {
+    		throw new ObjetoJaExistenteException("Unidade ja existe");
     	}
-    			
-    	throw new Rep("Objeto nao eh uma unidade de saude");
+    		
+    	unidadeSaude.setCodigo();
+    	this.unidades.add(unidadeSaude);
     }
 
 //        if (us == null) {
@@ -208,16 +201,18 @@ public class UnidadeSaudeServiceImpl implements UnidadeSaudeService {
 //    }
 
     @Override
-    public UnidadeSaude findByBairro(String bairro) {
+    public List<UnidadeSaude> findByBairro(String bairro) {
+    	
+    	List<UnidadeSaude> unidadesDoBairro = new ArrayList<>();
     	
     	for (UnidadeSaude unidadeSaude : unidades) {
     		
-    		if(unidadeSaude.pegaDescricao().equals(bairro)){
-    			
-    			return unidadeSaude;
+    		if(unidadeSaude.getBairro().equals(bairro)){
+    			unidadesDoBairro.add(unidadeSaude);
     		}
 		}
-    	return null;
+    	
+    	return unidadesDoBairro;
     }
 //        for (Object esp: this.unidades) {
 //            if (esp instanceof UnidadeSaude){;
