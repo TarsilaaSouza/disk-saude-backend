@@ -13,8 +13,6 @@ public class Animal {
 	int idInTable;
 	
 	private String tipo;
-	@OneToOne
-	private Endereco local;
 	
 	public Animal() {
 		super();
@@ -23,7 +21,6 @@ public class Animal {
 	public Animal(String tipo, String rua, String uf, String cidade){
 		
 		this.tipo = tipo;
-		this.local = new Endereco(rua, uf, cidade);
 	}
 
 	public String getTipo() {
@@ -34,11 +31,4 @@ public class Animal {
 		this.tipo = tipo;
 	}
 
-	public Endereco getEndereco() {
-		return local;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.local = endereco;
-	}
 }
