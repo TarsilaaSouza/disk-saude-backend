@@ -38,7 +38,7 @@ public class QueixaRestApiController {
 	
 	
 	@RequestMapping(value = "/queixa/", method = RequestMethod.GET)
-    public ResponseEntity<List<Queixa>> listAllUsers() {
+    public ResponseEntity<List<Queixa>> listAllQueixas() {
         List<Queixa> queixas = queixaService.findAllQueixas();
 
         if (queixas.isEmpty()) {

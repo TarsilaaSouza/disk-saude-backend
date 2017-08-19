@@ -201,18 +201,16 @@ public class UnidadeSaudeServiceImpl implements UnidadeSaudeService {
 //    }
 
     @Override
-    public List<UnidadeSaude> findByBairro(String bairro) {
+    public UnidadeSaude findByBairro(String bairro) {
     	
-    	List<UnidadeSaude> unidadesDoBairro = new ArrayList<>();
     	
     	for (UnidadeSaude unidadeSaude : unidades) {
-    		
-    		if(unidadeSaude.getBairro().equals(bairro)){
-    			unidadesDoBairro.add(unidadeSaude);
+    		if(unidadeSaude.getBairro().equals(bairro)) {
+    			return unidadeSaude;
     		}
 		}
     	
-    	return unidadesDoBairro;
+    	return null;
     }
 //        for (Object esp: this.unidades) {
 //            if (esp instanceof UnidadeSaude){;

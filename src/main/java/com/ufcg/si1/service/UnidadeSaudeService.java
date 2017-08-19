@@ -21,5 +21,5 @@ public interface UnidadeSaudeService {
 
     UnidadeSaude findById(long id);
 
-    List<UnidadeSaude> findByBairro(String bairro);
+    UnidadeSaude findByBairro(String bairro);
 }

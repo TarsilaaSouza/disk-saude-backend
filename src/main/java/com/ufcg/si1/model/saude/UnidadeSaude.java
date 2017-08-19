@@ -85,6 +85,11 @@ public class UnidadeSaude {
 		int result = 1;
 		result = prime * result + ((bairro == null) ? 0 : bairro.hashCode());
 		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
+		
+		if(result < 0) {
+			return result * -1;
+		}
+		
 		return result;
 	}
 
