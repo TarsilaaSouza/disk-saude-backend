@@ -3,6 +3,7 @@ package com.ufcg.si1.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +36,7 @@ import exceptions.Rep;
 @CrossOrigin
 public class SaudeRestApiController {
 	
+	@Autowired
 	EspecialidadeService especialidadeService = new EspecialidadeServiceImpl();
     UnidadeSaudeService unidadeSaudeService = new UnidadeSaudeServiceImpl();
     
@@ -78,14 +80,16 @@ public class SaudeRestApiController {
     public ResponseEntity<Especialidade> incluirEspecialidade(@RequestBody Especialidade esp,
     		UriComponentsBuilder ucBuilder) {
        
-    	try {
-            especialidadeService.insere(esp);
-        } catch (Rep e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        } catch (ObjetoJaExistenteException e) {
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
-        }
+    	if(esp.equals(null)) {
+    		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    	}
 
+    	try {
+			especialidadeService.insere(esp);
+		} catch (ObjetoJaExistenteException e) {
+			return new ResponseEntity<>(HttpStatus.CONFLICT);
+		}
+    	
     	return new ResponseEntity<Especialidade>(esp, HttpStatus.CREATED);
     }
 

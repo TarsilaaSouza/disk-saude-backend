@@ -3,9 +3,12 @@ package com.ufcg.si1.service;
 import exceptions.ObjetoInexistenteException;
 import exceptions.ObjetoJaExistenteException;
 import exceptions.Rep;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ufcg.si1.model.saude.Especialidade;
+import com.ufcg.si1.repository.EspecialidadeRepository;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,22 +17,20 @@ import java.util.List;
 @Service("especialidadeService")
 public class EspecialidadeServiceImpl implements EspecialidadeService {
 
-	private List<Especialidade> especialidades;
-    private int indice;
+
+	@Autowired
+	EspecialidadeRepository especialidadeRepository;
+	
 
 
-    public EspecialidadeServiceImpl() {
-    	
-    	
-    	this.especialidades = new ArrayList<>();
-        this.indice = 0;
+    public EspecialidadeServiceImpl() {    	
     }
 
     @Override
     public Especialidade procura(int codigo) throws Rep,
             ObjetoInexistenteException {
 
-    	for (Especialidade especialidade : especialidades) {
+    	for (Especialidade especialidade : especialidadeRepository.findAll()) {
 			
     		if(especialidade.getCodigo() == codigo){
     			
@@ -43,14 +44,18 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
     @Override
     public List<Especialidade> getListaEspecialidade()
             throws Rep, ObjetoInexistenteException {
-        //return Arrays.asList(vetor);
-    	return this.especialidades;
+        
+    	if(this.especialidadeRepository.findAll().isEmpty()) {
+        	throw new ObjetoInexistenteException("Nenhuma especialidade foi adicionada");
+        }
+        
+        return this.especialidadeRepository.findAll();
     }
 
     @Override
     public int size() {
         //return this.indice;
-    	return this.especialidades.size();
+    	return this.especialidadeRepository.findAll().size();
     }
 
     @Override
@@ -61,38 +66,20 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
             return null;*/
     	if(posicao < this.size()){
     		
-    		return this.especialidades.get(posicao);
+    		return this.especialidadeRepository.findAll().get(posicao);
     	}
     	return null;
     }
 
     @Override
-    public void insere(Especialidade especialidade) throws Rep,
-            ObjetoJaExistenteException {
-    	
-//    	int novoCodigo = this.gerarCodigo();
-    	
-       // especialidade.setCodigo(++geraCodigo);
-    	
-    	
-    	//Codigo agora é gerado pelo hash code
+    public void insere(Especialidade especialidade) throws ObjetoJaExistenteException{
     	especialidade.setCodigo();
-
-       /* if (indice == this.vetor.length) {
-            throw new Rep("Erro ao incluir no array");
-        }
-        
-        por que ter uma restricao de especialidades?
-*/
     	
-        if (this.findByCodigo(especialidade.getCodigo()) != null) {
-        	
-            throw new ObjetoJaExistenteException("Objeto ja existe no array");
-        }
-
-        this.especialidades.add(especialidade);
-//        this.vetor[indice] = especialidade;
-//        indice++;
+    	if(this.especialidadeRepository.findAll().contains(especialidade)) {
+    		throw new ObjetoJaExistenteException("Especialidade já existente");
+    	}
+    	
+        this.especialidadeRepository.save(especialidade);
     }
 
     @Override
@@ -126,7 +113,7 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
 
     public Especialidade findByCodigo(long id) {
   
-    	for (Especialidade especialidade : especialidades) {
+    	for (Especialidade especialidade : this.especialidadeRepository.findAll()) {
 			
     		if(especialidade.getCodigo() == id){
     			

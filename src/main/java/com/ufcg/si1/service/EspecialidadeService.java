@@ -14,14 +14,13 @@ public interface EspecialidadeService {
             ObjetoInexistenteException;
 
     List getListaEspecialidade()
-                    throws Rep, ObjetoInexistenteException;
+    		throws Rep, ObjetoJaExistenteException, ObjetoInexistenteException;
 
     int size();
 
     Especialidade getElemento(int posicao);
 
-    void insere(Especialidade esp)throws Rep,
-            ObjetoJaExistenteException;
+    void insere(Especialidade esp) throws ObjetoJaExistenteException;
 
 
     Especialidade findByCodigo(long id);
