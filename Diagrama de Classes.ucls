@@ -2,243 +2,467 @@
 <class-diagram version="1.2.0" icons="true" automaticImage="JPEG" always-add-relationships="false" 
   generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true" 
   router="FAN">  
-  <class id="1" language="java" name="com.ufcg.si1.model.saude.Especialidade" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/saude/Especialidade.java" binary="false" 
+  <interface id="1" language="java" name="com.ufcg.si1.model.prefeitura.PrefeituraStrategy" 
+    project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/prefeitura/PrefeituraStrategy.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="207" width="149" x="2853" y="342"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <interface id="2" language="java" name="com.ufcg.si1.service.QueixaService" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/service/QueixaService.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="189" width="176" x="2033" y="342"/>    
+    <position height="135" width="299" x="1721" y="480"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="3" language="java" name="com.ufcg.si1.SpringBootRestApiApp" project="SpringBootRestApiExample" 
+  <class id="2" language="java" name="com.ufcg.si1.model.prefeitura.PrefeituraNormal" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/prefeitura/PrefeituraNormal.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="299" x="1084" y="-19"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.ufcg.si1.model.prefeitura.PrefeituraCaos" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/prefeitura/PrefeituraCaos.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="299" x="1423" y="-19"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.ufcg.si1.SpringBootRestApiApp" project="SpringBootRestApiExample" 
     file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/SpringBootRestApiApp.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="99" width="153" x="173" y="-175"/>    
+    <position height="99" width="153" x="252" y="-19"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="exceptions.ObjetoJaExistenteException" project="SpringBootRestApiExample" 
+  <class id="5" language="java" name="com.ufcg.si1.controller.QueixaRestApiController" 
+    project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/controller/QueixaRestApiController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="279" width="393" x="2614" y="-19"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.ufcg.si1.controller.SaudeRestApiController" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/controller/SaudeRestApiController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="243" width="471" x="3639" y="-19"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="exceptions.ObjetoJaExistenteException" project="SpringBootRestApiExample" 
     file="/SpringBootRestApiExample/src/main/java/exceptions/ObjetoJaExistenteException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="81" width="195" x="366" y="-175"/>    
+    <position height="81" width="195" x="445" y="-19"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="com.ufcg.si1.service.QueixaServiceImpl" project="SpringBootRestApiExample" 
+  <class id="8" language="java" name="com.ufcg.si1.service.QueixaServiceImpl" project="SpringBootRestApiExample" 
     file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/service/QueixaServiceImpl.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="225" width="176" x="1868" y="-175"/>    
+    <position height="243" width="213" x="3047" y="-19"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="exceptions.Rep" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/exceptions/Rep.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="87" x="601" y="-175"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="com.ufcg.si1.util.ObjWrapper" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/util/ObjWrapper.java" binary="false" 
+  <class id="9" language="java" name="com.ufcg.si1.model.saude.Especialidade" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/saude/Especialidade.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="135" width="114" x="728" y="-175"/>    
+    <position height="261" width="149" x="3111" y="907"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="8" language="java" name="com.ufcg.si1.service.EspecialidadeService" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/service/EspecialidadeService.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="171" width="172" x="2531" y="342"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="9" language="java" name="com.ufcg.si1.model.pessoa.Endereco" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/pessoa/Endereco.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="207" width="170" x="882" y="643"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="10" language="java" name="com.ufcg.si1.model.saude.PostoSaude" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/saude/PostoSaude.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="189" width="209" x="3042" y="342"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="11" language="java" name="com.ufcg.si1.service.UnidadeSaudeServiceImpl" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/service/UnidadeSaudeServiceImpl.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="279" width="173" x="2084" y="-175"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <interface id="12" language="java" name="com.ufcg.si1.repository.QueixaRepository" project="SpringBootRestApiExample" 
+  <interface id="10" language="java" name="com.ufcg.si1.repository.QueixaRepository" project="SpringBootRestApiExample" 
     file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/repository/QueixaRepository.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="63" width="125" x="1868" y="342"/>    
+    <position height="63" width="125" x="2931" y="480"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="13" language="java" name="exceptions.ObjetoInvalidoException" project="SpringBootRestApiExample" 
+  <class id="11" language="java" name="exceptions.ObjetoInvalidoException" project="SpringBootRestApiExample" 
     file="/SpringBootRestApiExample/src/main/java/exceptions/ObjetoInvalidoException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="81" width="176" x="1232" y="-175"/>    
+    <position height="81" width="176" x="680" y="-19"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="com.ufcg.si1.model.queixa.Queixa" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/queixa/Queixa.java" binary="false" 
+  <enumeration id="12" language="java" name="com.ufcg.si1.model.queixa.QueixaStatus" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/queixa/QueixaStatus.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="477" width="310" x="882" y="-175"/>    
+    <position height="153" width="182" x="4731" y="480"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
-  </class>  
-  <class id="15" language="java" name="com.ufcg.si1.service.EspecialidadeServiceImpl" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/service/EspecialidadeServiceImpl.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="225" width="236" x="2766" y="-175"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="16" language="java" name="com.ufcg.si1.util.CustomErrorType" project="SpringBootRestApiExample" 
+  </enumeration>  
+  <class id="13" language="java" name="com.ufcg.si1.util.CustomErrorType" project="SpringBootRestApiExample" 
     file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/util/CustomErrorType.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="117" width="148" x="1448" y="-175"/>    
+    <position height="117" width="148" x="896" y="-19"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="exceptions.ObjetoInexistenteException" project="SpringBootRestApiExample" 
+  <class id="14" language="java" name="exceptions.ObjetoInexistenteException" project="SpringBootRestApiExample" 
     file="/SpringBootRestApiExample/src/main/java/exceptions/ObjetoInexistenteException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="81" width="192" x="1636" y="-175"/>    
+    <position height="81" width="192" x="2101" y="-19"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="com.ufcg.si1.model.pessoa.Pessoa" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/pessoa/Pessoa.java" binary="false" 
+  <class id="15" language="java" name="com.ufcg.si1.model.saude.PostoSaude" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/saude/PostoSaude.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="261" width="222" x="882" y="342"/>    
+    <position height="189" width="209" x="3300" y="907"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="com.ufcg.si1.model.saude.UnidadeSaude" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/saude/UnidadeSaude.java" binary="false" 
+  <interface id="16" language="java" name="com.ufcg.si1.repository.QueixaAnimalRepository" 
+    project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/repository/QueixaAnimalRepository.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="261" width="233" x="3042" y="-175"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <interface id="20" language="java" name="com.ufcg.si1.service.UnidadeSaudeService" project="SpringBootRestApiExample" 
-    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/service/UnidadeSaudeService.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="171" width="156" x="2249" y="342"/>    
+    <position height="63" width="164" x="3096" y="480"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <realization id="21">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="2"/>  
+  <class id="17" language="java" name="com.ufcg.si1.model.saude.HospitalAdapter" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/saude/HospitalAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="207" width="193" x="3549" y="907"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="18" language="java" name="com.ufcg.si1.service.QueixaService" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/service/QueixaService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="213" x="2678" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="19" language="java" name="com.ufcg.si1.model.queixa.QueixaAnimal" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/queixa/QueixaAnimal.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="452" x="4239" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="exceptions.Rep" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/exceptions/Rep.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="87" x="2333" y="-19"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.ufcg.si1.util.ObjWrapper" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/util/ObjWrapper.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="114" x="2460" y="-19"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="22" language="java" name="com.ufcg.si1.service.EspecialidadeService" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/service/EspecialidadeService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="171" width="187" x="3808" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="23" language="java" name="com.ufcg.si1.service.UnidadeSaudeServiceImpl" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/service/UnidadeSaudeServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="225" width="299" x="3300" y="-19"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.ufcg.si1.model.pessoa.Endereco" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/pessoa/Endereco.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="225" width="170" x="4953" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="25" language="java" name="com.ufcg.si1.repository.EspecialidadeRepository" 
+    project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/repository/EspecialidadeRepository.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="63" width="164" x="4035" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="26" language="java" name="com.ufcg.si1.service.EspecialidadeServiceImpl" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/service/EspecialidadeServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="236" x="4150" y="-19"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="com.ufcg.si1.model.pessoa.Pessoa" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/pessoa/Pessoa.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="261" width="138" x="5163" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="com.ufcg.si1.model.queixa.Queixa" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/queixa/Queixa.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="459" width="296" x="4771" y="-19"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="com.ufcg.si1.model.pessoa.Animal" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/pessoa/Animal.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="171" width="187" x="4239" y="907"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="com.ufcg.si1.model.saude.UnidadeSaude" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/saude/UnidadeSaude.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="387" width="233" x="3300" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="com.ufcg.si1.model.prefeitura.PrefeituraExtra" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/model/prefeitura/PrefeituraExtra.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="299" x="1762" y="-19"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="32" language="java" name="com.ufcg.si1.service.UnidadeSaudeService" project="SpringBootRestApiExample" 
+    file="/SpringBootRestApiExample/src/main/java/com/ufcg/si1/service/UnidadeSaudeService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="171" width="195" x="3573" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <association id="33">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="34" name="queixaService"/>      
+      <multiplicity id="35" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="36">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="30"/>  
+  </generalization>  
+  <association id="37">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="38" name="especialidades"/>      
+      <multiplicity id="39" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="40">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
   </realization>  
-  <association id="22">    
+  <association id="41">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="42" name="unidades"/>      
+      <multiplicity id="43" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="44">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <realization id="45">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <association id="46">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="47" name="queixaStatus"/>      
+      <multiplicity id="48" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="49">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <generalization id="50">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="28"/>  
+  </generalization>  
+  <association id="51">    
     <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="23" name="especialidades">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="24" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+      <attribute id="52" name="animal"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="54">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="55" name="local"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="57">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="22"/>  
+  </realization>  
+  <realization id="58">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="18"/>  
+  </realization>  
+  <association id="59">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="60" name="pessoa"/>      
+      <multiplicity id="61" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="62">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="63" name="queixaAnimalRepository"/>      
+      <multiplicity id="64" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="65">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="66" name="queixaRepository"/>      
+      <multiplicity id="67" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="68">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="30"/>  
+  </generalization>  
+  <association id="69">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="70" name="unidadeSaudeService"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="72">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="73" name="prefeituraStrategy"/>      
+      <multiplicity id="74" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="25">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="8"/>  
-  </realization>  
-  <generalization id="26">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <realization id="27">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="20"/>  
-  </realization>  
-  <association id="28">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="29" name="pessoa">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="30" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+  <association id="75">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="76" name="especialidadeService"/>      
+      <multiplicity id="77" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="78">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="79" name="especialidadeRepository"/>      
+      <multiplicity id="80" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
