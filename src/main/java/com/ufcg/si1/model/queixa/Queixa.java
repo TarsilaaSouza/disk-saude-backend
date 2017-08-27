@@ -14,6 +14,7 @@ import javax.persistence.OneToOne;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
+import com.ufcg.si1.model.pessoa.Endereco;
 import com.ufcg.si1.model.pessoa.Pessoa;
 import com.ufcg.si1.repository.QueixaRepository;
 
@@ -33,6 +34,9 @@ public class Queixa {
 	
 	private QueixaStatus queixaStatus;
 	
+	@OneToOne(cascade= CascadeType.ALL)
+	private Endereco local;
+	
 	public Queixa(){
 		id=0;
 	}
@@ -40,10 +44,12 @@ public class Queixa {
 	public Queixa(int id, String descricao, String comentario,
                   String nome, String email,
 				  String rua, String uf, String cidade) {
+		
 		this.id = id;
 		this.descricao = descricao;
 		this.comentario = comentario;
-		this.pessoa = new Pessoa(nome, email, rua, uf, cidade);
+		this.pessoa = new Pessoa(nome, email);
+		this.local = new Endereco(rua, uf, cidade);
 	}
 
 	public long getId() {
@@ -94,6 +100,14 @@ public class Queixa {
 
 	public void setSolicitante(Pessoa solicitante) {
 		this.pessoa = solicitante;
+	}
+	
+	public Endereco getLocal() {
+		return this.local;
+	}
+	
+	public void setLocal(Endereco local) {
+		this.local = local;
 	}
 
 	@Override

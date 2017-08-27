@@ -9,6 +9,8 @@ public class Endereco {
 
 	@GeneratedValue
 	@Id
+	private int idInTheTable;
+	
 	private String rua;
 	private String uf;
 	private String cidade;

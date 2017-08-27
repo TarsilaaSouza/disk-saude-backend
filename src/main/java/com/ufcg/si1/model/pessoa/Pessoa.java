@@ -4,7 +4,6 @@ import javax.persistence.Access;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GeneratorType;
 
@@ -20,18 +19,14 @@ public class Pessoa{
 	
 	private String email;
 	
-	@OneToOne
-	private Endereco endereco;
-	
 	public Pessoa(){
 		super();
 	}
 
-	public Pessoa(String nome, String email, String rua, String uf,
-			String cidade) {
+	public Pessoa(String nome, String email) {
 		this.nome = nome;
 		this.email = email;
-		this.endereco = new Endereco(rua, uf, cidade);
+		
 	}
 
 	public String getNome() {
